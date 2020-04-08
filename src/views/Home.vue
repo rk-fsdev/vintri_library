@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1 class="home_title">Library</h1>
+    <BookList :lists="bookList" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import BookList from "@/components/BookList.vue";
+
+import { bookList } from "@/services/dummyData";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    BookList
+  },
+  data: function() {
+    return {
+      bookList
+    };
   }
 };
 </script>
+<style lang="scss" scoped>
+.home {
+  padding: 100px;
+  &_title {
+    text-align: center;
+  }
+}
+</style>
